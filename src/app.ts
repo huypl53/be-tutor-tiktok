@@ -3,6 +3,10 @@ import cors from "cors";
 import helmet from "helmet";
 import noCache from "nocache";
 
+import routers from "apis";
+import initializeResources from "resources";
+import configs from "configs";
+
 const app = express();
 
 function initializeSecurity() {
@@ -16,5 +20,12 @@ function initializeSecurity() {
 }
 
 initializeSecurity();
+app.user(routers);
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`[server]: Server is running at http://localhost:${PORT}`);
+});
 
 export default app;
