@@ -8,3 +8,5 @@ coverage
 src/test
 
 src/migrations
+
+.husky
