@@ -46,6 +46,7 @@
     "express-winston": "^4.2.0",
     "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2",
     "nocache": "^3.0.4",
     "ts-node": "^10.9.1"
   },
