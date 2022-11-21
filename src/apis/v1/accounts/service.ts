@@ -6,12 +6,9 @@ const createAccount = async (req: Request, next: NextFunction) => {
   const { error } = usersValidate(req.body);
 
   if (error) {
-    console.log(error);
-
     next(error);
   } else {
     const result = await AccountsModel.create(req.body);
-
     return result;
   }
 };
