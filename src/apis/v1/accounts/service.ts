@@ -1,4 +1,4 @@
-import { AccountsModel } from "~/models";
+import { AccountsModel } from "models";
 
 const createAccount = async () => {
   const result = AccountsModel.create({

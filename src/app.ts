@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from 'express';
 import cors from "cors";
 import helmet from "helmet";
 import noCache from "nocache";
@@ -6,6 +6,7 @@ import noCache from "nocache";
 import routers from "apis";
 import initializeResources from "resources";
 import configs from "configs";
+import { errorMiddleware } from 'middlewares';
 
 const app = express();
 
@@ -19,8 +20,24 @@ function initializeSecurity() {
   app.use(helmet.xssFilter());
 }
 
+function initializeMiddlewares() {
+  app.use(express.json());
+
+  // use for computing processing time on response
+  app.use((req: any, _res: Response, next: NextFunction) => {
+    req.startTime = Date.now();
+    next();
+  });
+}
+
+function initializeErrorHandler() {
+  app.use(errorMiddleware);
+}
+
 initializeSecurity();
-app.user(routers);
+initializeMiddlewares();
+app.use(routers);
+initializeErrorHandler();
 
 const PORT = process.env.PORT || 3000;
 
