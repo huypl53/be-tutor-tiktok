@@ -1,16 +1,17 @@
-import {Response} from "express";
+import { Response } from "express";
 export class ApiResponse<T> {
   data: T = {} as T;
-  message = 'Successfully!';
-  status=200;
+  message = "Successfully!";
+  status = 200;
   time?: number;
 
-  constructor(data?: T, message?: string, status?: number, time?: number){
+  constructor(data?: T, message?: string, status?: number, time?: number) {
     data && (this.data = data);
     message && (this.message = message);
     status && (this.status = status);
     time && (this.time = time);
   }
+
   public send(res: Response): void {
     res.status(this.status).json({
       data: this.data,

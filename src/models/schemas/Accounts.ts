@@ -1,6 +1,6 @@
-import { model, Model, Schema } from 'mongoose';
-import { MODELS } from 'utils/constants/models';
-import Accounts from '../types/Accounts';
+import { model, Model, Schema } from "mongoose";
+import { MODELS } from "utils/constants/models";
+import Accounts from "../types/Accounts";
 
 export const accountsSchema = new Schema<Accounts>(
   {
@@ -18,15 +18,18 @@ export const accountsSchema = new Schema<Accounts>(
     likes_count: { type: Number, default: 0 },
     website_url: { type: String },
     social_network: [{ name: String, url: String }],
-    role: { type: String, default: 'user' },
+    role: { type: String, default: "user" },
   },
   {
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+    timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
   }
 );
 
 accountsSchema.index({ nickname: 1, fullname: 1 });
 
-const AccountsModel: Model<Accounts> = model<Accounts>(MODELS.accounts, accountsSchema);
+const AccountsModel: Model<Accounts> = model<Accounts>(
+  MODELS.accounts,
+  accountsSchema
+);
 
 export default AccountsModel;

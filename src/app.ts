@@ -1,12 +1,12 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response, NextFunction } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import noCache from "nocache";
 
-import routers from "apis";
 import initializeResources from "resources";
 import configs from "configs";
-import { errorMiddleware } from 'middlewares';
+import { errorMiddleware } from "middlewares";
+import routers from "apis";
 
 const app = express();
 
