@@ -1,5 +1,5 @@
-import Joi from 'joi';
-import { Request } from 'express';
+import Joi from "joi";
+import { Request } from "express";
 
 const usersValidate = (body: Request) => {
   const userSchema = Joi.object({

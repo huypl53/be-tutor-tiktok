@@ -1,2 +1,2 @@
-export * from './asyncRoute';
-export * from './errorMiddleware';
+export * from "./asyncRoute";
+export * from "./errorMiddleware";
