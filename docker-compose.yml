@@ -1,0 +1,16 @@
+version: "3.8"
+
+# networks:
+#   be-tiktok-net:
+#     driver: bridge
+
+services:
+  #container mongo
+  be-mongo:
+    image: mongo:latest
+    container_name: be-mongo
+    ports:
+      - 27021:27017
+    restart: unless-stopped
+    # networks:
+    #   - be-tiktok-net
