@@ -14,7 +14,6 @@ const errorMiddleware = (
     name: error.name,
     message: error.message,
     status: error.status,
-    stack: error.stack,
     errorCode: errorCode,
   });
 };
