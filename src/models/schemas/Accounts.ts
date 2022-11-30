@@ -19,7 +19,7 @@ export const AccountsSchema = new Schema<Accounts>(
     likes_count: { type: Number, default: 0 },
     website_url: { type: String },
     social_network: [{ name: String, url: String }],
-    role: { type: String, default: "user" },
+    role: { type: String, default: "user", required: true },
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

@@ -3,7 +3,7 @@ import { usersValidate } from "Helpers/validation";
 import { AccountsModel } from "models";
 import { HttpException, StatusCode } from "exceptions";
 
-const createAccount = async (req: Request, next: NextFunction) => {
+export const createAccounts = async (req: Request, next: NextFunction) => {
   const { error } = usersValidate(req.body);
   const { username } = req.body;
 
@@ -38,7 +38,7 @@ const createAccount = async (req: Request, next: NextFunction) => {
   }
 };
 
-const updateAccounts = async (req: Request, next: NextFunction) => {
+export const updateAccounts = async (req: Request, next: NextFunction) => {
   const { error } = usersValidate(req.body);
   const { fullname, nickname, avatar, bio, website_url, social_network } =
     req.body;
@@ -59,4 +59,11 @@ const updateAccounts = async (req: Request, next: NextFunction) => {
   }
 };
 
-export { createAccount, updateAccounts };
+export const randomUsers = async (req: Request, next: NextFunction) => {
+  const { username } = req.body;
+  try {
+    return null;
+  } catch (error) {
+    next(error);
+  }
+};
