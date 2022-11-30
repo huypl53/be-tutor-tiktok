@@ -9,7 +9,7 @@ export const createAccounts = async (
   res: Response,
   next: NextFunction
 ): Promise<any> => {
-  const result = await service.createAccount(req, next);
+  const result = await service.createAccounts(req, next);
   if (result)
     new ApiResponse(result, "OK", 200, Date.now() - req.startTime).send(res);
 };
@@ -40,6 +40,16 @@ export const getUserinfo = async (
   next: NextFunction
 ): Promise<any> => {
   const result = await queues.getUserinfo(req, next);
+  if (result)
+    new ApiResponse(result, "OK", 200, Date.now() - req.startTime).send(res);
+};
+
+export const randomUsers = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<any> => {
+  const result = await service.randomUsers(req, next);
   if (result)
     new ApiResponse(result, "OK", 200, Date.now() - req.startTime).send(res);
 };

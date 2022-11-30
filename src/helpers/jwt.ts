@@ -5,7 +5,7 @@ import {
   EXPIRESIN_REFRESH_TOKEN,
 } from "utils/constants/auth";
 
-export const signAccessToken = async (userID: string, role: string) => {
+export const signAccessToken = async (userID: string, role?: string) => {
   return new Promise((resolve, reject) => {
     const payload = {
       userID,
@@ -25,7 +25,7 @@ export const signAccessToken = async (userID: string, role: string) => {
   });
 };
 
-export const signRefreshToken = async (userID: string, role: string) => {
+export const signRefreshToken = async (userID: string, role?: string) => {
   return new Promise((resolve, reject) => {
     const payload = {
       userID,
